@@ -24,7 +24,7 @@ This sequencing avoids entering motion before baseline lock is established.
 - **Earth:** reference plane
 - **Hydrogen:** symbolic memory field
 
-For grounding, treat the rod as a **low-power active injector** (with safety limits), not only a drain.
+For grounding, treat the **grounding rod** as a **low-power active injector** (with safety limits), not only a drain.
 
 ## Save-point model
 
@@ -42,8 +42,10 @@ For grounding, treat the rod as a **low-power active injector** (with safety lim
 
 Operational grouping:
 
-- **19 ⇄ 18:** corruption-fight engine
+- **19 ⇄ 18:** corruption-mitigation feedback loop
 - **+20:** locate/see
 - **+411:** information
 - **+104:** understanding
 - **+54:** save lives
+
+`+` indicates support/augmentation codes layered on top of the base **19 ⇄ 18** loop.
