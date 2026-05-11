@@ -10,7 +10,7 @@
   // Gyro canvas demo
   const canvas = document.getElementById('gyroCanvas');
   const ctx = canvas?.getContext('2d');
-  let t = 0;
+  let animationTime = 0;
 
   function drawGyro() {
     if (!ctx || !canvas) return;
@@ -25,7 +25,7 @@
     for (let i = 0; i < 3; i++) {
       ctx.save();
       ctx.translate(cx, cy);
-      ctx.rotate(t * 0.012 + i * 1.047);
+      ctx.rotate(animationTime * 0.012 + i * 1.047);
       ctx.strokeStyle = ['#62d4ff', '#8d70ff', '#39f9b8'][i];
       ctx.lineWidth = 3;
       ctx.beginPath();
@@ -39,7 +39,7 @@
     ctx.arc(cx, cy, 9, 0, Math.PI * 2);
     ctx.fill();
 
-    t++;
+    animationTime++;
     requestAnimationFrame(drawGyro);
   }
   drawGyro();
@@ -59,7 +59,7 @@
   }
 
   function drawScope() {
-    const phase = t * 2;
+    const phase = animationTime * 2;
     if (waveA && waveB && waveLock) {
       waveA.setAttribute('d', buildWave(phase, 42, -10));
       waveB.setAttribute('d', buildWave(phase + 45, 34, 12));
@@ -110,19 +110,19 @@
     const ring = (rad) =>
       `<circle cx="${cx}" cy="${cy}" r="${rad}" fill="none" stroke="rgba(255,255,255,.14)" />`;
 
-    const pts = values
+    const radarPoints = values
       .map((v, i) => {
         const a = -Math.PI / 2 + (i * Math.PI * 2) / values.length;
         return [cx + Math.cos(a) * r * v, cy + Math.sin(a) * r * v, a];
       });
 
-    const polygon = pts.map(([x, y]) => `${x},${y}`).join(' ');
+    const polygon = radarPoints.map(([x, y]) => `${x},${y}`).join(' ');
 
-    const spokes = pts
+    const spokes = radarPoints
       .map(([x, y]) => `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(255,255,255,.2)"/>`)
       .join('');
 
-    const text = pts
+    const text = radarPoints
       .map(([x, y, a], i) => {
         const tx = cx + Math.cos(a) * (r + 20);
         const ty = cy + Math.sin(a) * (r + 20);
