@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gyroscope Protocol Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <header class="topbar glass">
+      <a class="brand" href="#home" aria-label="Gyroscope home">
+        <span class="brand-dot"></span>
+        Gyroscope Studio
+      </a>
+
+      <button id="menuButton" class="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#protocol">Protocol</a>
+        <a href="#demos">Demos</a>
+        <a href="#charts">Charts</a>
+        <a href="https://www-infinity4.github.io/livecwebpages/" target="_blank" rel="noopener noreferrer">LiveC Home</a>
+        <a href="https://www-infinity4.github.io/livecwebpages/#projects" target="_blank" rel="noopener noreferrer">LiveC Projects</a>
+      </nav>
+    </header>
+
+    <aside id="mobileNav" class="mobile-nav glass" aria-label="Mobile navigation">
+      <a href="#protocol">Protocol</a>
+      <a href="#demos">Demos</a>
+      <a href="#charts">Charts</a>
+      <a href="https://www-infinity4.github.io/livecwebpages/" target="_blank" rel="noopener noreferrer">LiveC Home</a>
+      <a href="https://www-infinity4.github.io/livecwebpages/#projects" target="_blank" rel="noopener noreferrer">LiveC Projects</a>
+      <a href="https://www-infinity4.github.io/livecwebpages/#contact" target="_blank" rel="noopener noreferrer">LiveC Contact</a>
+    </aside>
+
+    <main id="home" class="layout">
+      <section class="hero glass">
+        <p class="eyebrow">141 / 84 / Gyro</p>
+        <h1>Dynamic Gyroscope Protocol Dashboard</h1>
+        <p>
+          A complete visual website for planning static calibration, pilot lock, and dynamic rotation with interactive demos and live telemetry-style charts.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#demos">Open Visual Demos</a>
+          <a class="btn btn-secondary" href="https://www-infinity4.github.io/livecwebpages/" target="_blank" rel="noopener noreferrer">Visit LiveC Webpages</a>
+        </div>
+      </section>
+
+      <section id="protocol" class="panel glass">
+        <h2>Protocol Sequence</h2>
+        <div class="steps">
+          <article>
+            <h3>1 · Static 141</h3>
+            <p>Establish baseline and lock reference conditions before motion.</p>
+          </article>
+          <article>
+            <h3>2 · Pilot 84</h3>
+            <p>Stabilize and phase-lock control before dynamic operations.</p>
+          </article>
+          <article>
+            <h3>3 · Gyro Rotation</h3>
+            <p>Enter directional and rotational mode once lock confidence is high.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="demos" class="panel glass">
+        <h2>Visual Demos</h2>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Gyro Core</h3>
+            <canvas id="gyroCanvas" width="420" height="280" aria-label="Gyroscope visualization"></canvas>
+          </article>
+          <article class="demo-card">
+            <h3>Phase Lock Scope</h3>
+            <svg id="scope" viewBox="0 0 420 280" role="img" aria-label="Phase lock waveform chart">
+              <path id="waveA"></path>
+              <path id="waveB"></path>
+              <path id="waveLock"></path>
+            </svg>
+          </article>
+        </div>
+      </section>
+
+      <section id="charts" class="panel glass">
+        <h2>Charts & Graphs</h2>
+        <div class="chart-grid">
+          <article>
+            <h3>Mode Confidence</h3>
+            <div class="bars" id="confidenceBars"></div>
+          </article>
+          <article>
+            <h3>Energy Allocation</h3>
+            <svg id="radar" viewBox="0 0 320 320" role="img" aria-label="Radar graph for energy allocation"></svg>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
