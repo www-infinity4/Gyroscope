@@ -22,22 +22,22 @@ This sequencing avoids entering motion before baseline lock is established.
 - **141:** master pattern node
 - **84:** pilot / stability lock
 - **Earth:** reference plane
-- **Hydrogen:** symbolic memory field
+- **Hydrogen:** symbolic memory field (conceptual state-storage medium)
 
 For grounding, treat the **grounding rod** as a **low-power active injector** (with safety limits), not only a drain.
-For this project, "low power" means **bench-level test signals only** (for example, ≤5V and ≤100mA), with current limiting and isolation enabled.
+For this project, "low power" means **bench-level test signals only** with both limits observed simultaneously (maximum **≤5V** and **≤100mA**), plus current limiting and isolation.
 
 ## Save-point model
 
 - **Static:** program layer (configuration and baseline setup)
 - **Atom:** hardware layer (physical components and wiring)
 - **Resonance:** wake-up layer (timing/phase activation controls)
-- **Hydrogen lattice:** memory/buffer layer (state retention and buffering abstraction)
+- **Hydrogen lattice:** memory/buffer layer (the implementation view of the Hydrogen symbolic memory field)
 - **Number code:** command language (symbolic operation IDs used by this README)
 
 ## Protocol correction
 
-In this document, numeric values (for example 141, 84, 19, 18, 20, 411) are **symbolic protocol identifiers**, not chemical element instructions.
+In this document, numeric values (for example 141, 84, 19, 18, 20, 411) are **symbolic protocol identifiers**, not references to atomic numbers or chemistry execution steps.
 
 - **Do not wake 19 with 20.**
 - **19 wakes 18, then 18 feeds back into 19.**
