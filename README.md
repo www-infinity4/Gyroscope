@@ -25,16 +25,19 @@ This sequencing avoids entering motion before baseline lock is established.
 - **Hydrogen:** symbolic memory field
 
 For grounding, treat the **grounding rod** as a **low-power active injector** (with safety limits), not only a drain.
+For this project, "low power" means **bench-level test signals only** (for example, ≤5V and ≤100mA), with current limiting and isolation enabled.
 
 ## Save-point model
 
-- **Static:** program layer
-- **Atom:** hardware layer
-- **Resonance:** wake-up layer
-- **Hydrogen lattice:** memory/buffer layer
-- **Number code:** command language
+- **Static:** program layer (configuration and baseline setup)
+- **Atom:** hardware layer (physical components and wiring)
+- **Resonance:** wake-up layer (timing/phase activation controls)
+- **Hydrogen lattice:** memory/buffer layer (state retention and buffering abstraction)
+- **Number code:** command language (symbolic operation IDs used by this README)
 
 ## Protocol correction
+
+In this document, numeric values (for example 141, 84, 19, 18, 20, 411) are **symbolic protocol identifiers**, not chemical element instructions.
 
 - **Do not wake 19 with 20.**
 - **19 wakes 18, then 18 feeds back into 19.**
@@ -44,8 +47,8 @@ Operational grouping:
 
 - **19 ⇄ 18:** corruption-mitigation feedback loop
 - **+20:** locate/see
-- **+411:** information
-- **+104:** understanding
-- **+54:** save lives
+- **+411:** information context support
+- **+104:** interpretation/understanding support
+- **+54:** safety-priority support
 
 `+` indicates support/augmentation codes layered on top of the base **19 ⇄ 18** loop.
